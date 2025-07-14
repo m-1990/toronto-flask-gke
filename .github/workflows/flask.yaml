@@ -7,6 +7,14 @@ on:
   pull_request:
     branches:
       - main
+env:
+  PROJECT_ID: 'gke-handson-459103'
+  GKE_CLUSTER: 'gke-cluster'
+  GKE_ZONE: 'us-central1-c'
+  DEPLOYMENT_NAME: 'deploy.yaml'
+  SVC_NAME: 'svc.yaml'
+  NAMESPACE: 'app'
+  IMAGE: 'flask-toronto'
 
 jobs:
   build:
