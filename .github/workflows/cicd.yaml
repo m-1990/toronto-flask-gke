@@ -17,7 +17,7 @@ on:
     branches:
       - main
 jobs:
-  build_n_deploy:
+  build:
     name: build image and push
     runs-on: ubuntu-latest
 
