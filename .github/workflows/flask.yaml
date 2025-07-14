@@ -42,15 +42,18 @@ jobs:
           context: .
           push: true
           tags: ghcr.io/${{ github.repository_owner }}/flask-toronto:latest
+      - name: echo variables
+        run: |
+          echo "cluster name: ${{ env.GKE_CLUSTER }}"
 
       - name: Get the GKE credentials to deploy to the cluster
         uses: google-github-actions/get-gke-credentials@v2
         with:
-          cluster_name: '${{ env.GKE_CLUSTER }}'
-          location: '${{ env.GKE_ZONE }}'
+          cluster_name: ${{ env.GKE_CLUSTER }}
+          location: ${{ env.GKE_ZONE }}
 
       - name: deploy to cluster
         run: |-
-         kubectl apply -f '${{ env.DEPLOYMENT_NAME }}' -n '${{env.NAMESPACE}}'
-         kubectl apply -f '${{ env.SVC_NAME }}' -n '${{env.NAMESPACE}}'
-         kubectl get pods -n '${{env.NAMESPACE}}'
+         kubectl apply -f ${{ env.DEPLOYMENT_NAME }} -n ${{env.NAMESPACE}}
+         kubectl apply -f ${{ env.SVC_NAME }} -n ${{env.NAMESPACE}}
+         kubectl get pods -n ${{env.NAMESPACE}}
