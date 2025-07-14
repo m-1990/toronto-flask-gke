@@ -1,12 +1,5 @@
 name: 'CI/CD for Flask App via GHCR'
 
-on: 
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
 env:
   PROJECT_ID: 'gke-handson-459103'
   GKE_CLUSTER: 'gke-cluster'
@@ -15,7 +8,14 @@ env:
   SVC_NAME: 'svc.yaml'
   NAMESPACE: 'app'
   IMAGE: 'flask-toronto'
-  
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 jobs:
   build_and_deploy:
     name: build image and push
