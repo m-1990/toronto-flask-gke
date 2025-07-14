@@ -1,0 +1,14 @@
+name: 'CI/CD for Flask App'
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: build image and push
+    runs-on: ubuntu-latest
