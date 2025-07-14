@@ -16,7 +16,6 @@ env:
   NAMESPACE: 'app'
   IMAGE: 'flask-toronto'
   
-
 jobs:
   build_and_deploy:
     name: build image and push
