@@ -45,6 +45,10 @@ jobs:
       - name: echo variables
         run: |
           echo "cluster name: ${{ env.GKE_CLUSTER }}"
+      - name: Authenticate with GKE Credentials
+        uses: 'google-github-actions/auth@v2'
+        with:
+          credentials_json: '${{ secrets.gcp_credentials }}'
 
       - name: Get the GKE credentials to deploy to the cluster
         uses: google-github-actions/get-gke-credentials@v2
