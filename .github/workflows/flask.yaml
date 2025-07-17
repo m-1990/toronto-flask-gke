@@ -58,6 +58,6 @@ jobs:
 
       - name: deploy to cluster
         run: |-
-         kubectl apply -f ${{ env.DEPLOYMENT_NAME }} -n ${{env.NAMESPACE}}
-         kubectl apply -f ${{ env.SVC_NAME }} -n ${{env.NAMESPACE}}
+         kubectl apply -f toronto-flask-gke/${{ env.DEPLOYMENT_NAME }} -n ${{env.NAMESPACE}}
+         kubectl apply -f toronto-flask-gke/${{ env.SVC_NAME }} -n ${{env.NAMESPACE}}
          kubectl get pods -n ${{env.NAMESPACE}}
